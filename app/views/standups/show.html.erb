@@ -9,3 +9,5 @@
     <%= update.user.name %>: <%= distance_of_time_in_words(update.duration, 0, true) %>
   </div>
 <% end %>
+
+<%= link_to "Team Overview", team_path(@standup.team) %>
