@@ -4,3 +4,9 @@
     <%= button_to participant.name+"'s Update", new_update_standup_path(user_id: participant.id, standup_id: @standup.id), class: "button", method: "post", style: 'float: left;' %>
   </div>
 <% end %>
+
+
+
+<div style="clear: both;">
+  <%= link_to "Finish Standup", team_path(@standup.team) %>
+</div>

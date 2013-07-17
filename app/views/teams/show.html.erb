@@ -6,6 +6,11 @@
   <%= button_to "New Standup", new_standup_team_path, class: "button", method: "post"  %>
 </div>
 
+<h2>Team members:</h2>
+<% @team.users.each do |user| %>
+  <div style="clear: both;"><%= user.name %></div>
+<% end %>
+
 <div>
-<%= link_to 'Add User', new_user_path() %>
+<%= link_to 'Add Team Member', new_user_path() %>
 </div>
