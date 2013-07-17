@@ -1,6 +1,7 @@
 class Standup < ActiveRecord::Base
   belongs_to :team
   has_many :updates
+  has_many :users, through: :updates
 
   def next_participant
     users = team.users

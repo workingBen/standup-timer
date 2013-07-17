@@ -42,7 +42,7 @@ class UpdatesController < ApplicationController
   def update
     respond_to do |format|
       if @update.update(update_params)
-        redirect_after_update
+        format.html { redirect_after_update(@update) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -61,12 +61,12 @@ class UpdatesController < ApplicationController
     end
   end
 
-  def redirect_after_update
-    next_participant = @update.standup.next_participant
+  def redirect_after_update(lastUpdate)
+    next_participant = lastUpdate.standup.next_participant
     if next_participant
-      format.html { redirect_to new_update_standup_path(user_id: next_participant, standup_id: @update.standup.id) }
+      redirect_to new_update_standup_path(user_id: next_participant, standup_id: lastUpdate.standup.id)
     else
-      format.html { redirect_to standup_path(@update.standup), notice: 'Update was successfully updated.' }
+      redirect_to standup_path(lastUpdate.standup), notice: 'Update was successfully updated.'
     end
   end
 
@@ -75,7 +75,7 @@ class UpdatesController < ApplicationController
     @update.duration = -1
     @update.save
 
-    redirect_after_update
+    redirect_after_update(@update)
   end
 
   private
