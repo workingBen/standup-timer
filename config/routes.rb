@@ -1,7 +1,11 @@
 StandupTimer::Application.routes.draw do
   resources :updates
 
-  resources :standups
+  resources :standups do
+    member do
+      post 'new_update'
+    end
+  end
 
   resources :users
 

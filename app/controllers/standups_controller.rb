@@ -61,6 +61,14 @@ class StandupsController < ApplicationController
     end
   end
 
+  def new_update
+    standup = Standup.find(params[:standup_id])
+    participant = User.find(params[:user_id])
+
+    update = Update.create! standup_id: standup.id, user_id: participant.id
+    redirect_to edit_update_path(update)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_standup
