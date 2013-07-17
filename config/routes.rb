@@ -3,7 +3,11 @@ StandupTimer::Application.routes.draw do
 
   resources :users
 
-  resources :teams
+  resources :teams do
+    member do
+      post 'new_standup'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -45,7 +49,7 @@ StandupTimer::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

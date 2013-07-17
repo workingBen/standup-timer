@@ -61,6 +61,11 @@ class TeamsController < ApplicationController
     end
   end
 
+  def new_standup
+    standup = Standup.create! team_id: params[:id]
+    redirect_to edit_standup_path(standup.id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
