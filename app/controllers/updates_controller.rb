@@ -42,7 +42,12 @@ class UpdatesController < ApplicationController
   def update
     respond_to do |format|
       if @update.update(update_params)
-        format.html { redirect_to edit_standup_path(@update.standup), notice: 'Update was successfully updated.' }
+        next_participant = @update.standup.next_participant
+        if next_participant
+          format.html { redirect_to new_update_standup_path(user_id: next_participant, standup_id: @update.standup.id) }
+        else
+          format.html { redirect_to standup_path(@update.standup), notice: 'Update was successfully updated.' }
+        end
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

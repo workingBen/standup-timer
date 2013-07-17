@@ -3,7 +3,7 @@ StandupTimer::Application.routes.draw do
 
   resources :standups do
     member do
-      post 'new_update'
+      get 'new_update'
     end
   end
 

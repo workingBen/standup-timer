@@ -1,7 +1,7 @@
 <h1>Participants:</h1>
 <% @standup.team.users.each do |participant| %>
   <div style="clear: both;">
-    <%= button_to participant.name+"'s Update", new_update_standup_path(user_id: participant.id, standup_id: @standup.id), class: "button", method: "post", style: 'float: left;' %>
+    <%= button_to participant.name+"'s Update", new_update_standup_path(user_id: participant.id, standup_id: @standup.id), class: "button", method: "get", style: 'float: left;' %>
   </div>
 <% end %>
 

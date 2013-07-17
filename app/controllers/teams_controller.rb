@@ -64,7 +64,7 @@ class TeamsController < ApplicationController
   def new_standup
     @team = Team.find(params[:id])
     standup = Standup.create! team_id: @team.id
-    redirect_to edit_standup_path(standup.id)
+    redirect_to new_update_standup_path(user_id: standup.next_participant, standup_id: standup.id)
   end
 
   private
