@@ -1,3 +1,5 @@
+require 'pry'
+
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
 
@@ -19,6 +21,7 @@ class UpdatesController < ApplicationController
 
   # GET /updates/1/edit
   def edit
+    binding.pry
   end
 
   # POST /updates
@@ -71,6 +74,8 @@ class UpdatesController < ApplicationController
   end
 
   def absent_user
+    binding.pry
+
     @update = Update.find(params[:id])
     @update.duration = -1
     @update.save

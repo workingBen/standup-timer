@@ -1,7 +1,8 @@
 class Standup < ActiveRecord::Base
   belongs_to :team
   has_many :updates
-  has_many :users, through: :updates
+  has_many :participants, through: :updates, source: :user, :conditions => ['updates.duration > 0']
+
 
   def next_participant
     users = team.users
