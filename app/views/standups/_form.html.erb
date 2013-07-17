@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  <h1>Participants:</h1>
+  <% @standup.participants.each do |participant| %>
+    <div>
+      <%= participant.name %>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= f.label :team_id %><br>
     <%= f.number_field :team_id %>

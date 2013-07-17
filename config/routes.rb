@@ -1,4 +1,6 @@
 StandupTimer::Application.routes.draw do
+  resources :updates
+
   resources :standups
 
   resources :users
