@@ -1,3 +1,25 @@
+
+<span id="counter" class="timer">0:00</span>
+<script>
+var seconds = 0;
+function secondPassed() {
+    var minutes = Math.round((seconds - 30)/60);
+    var remainingSeconds = seconds % 60;
+    if (remainingSeconds < 10) {
+        remainingSeconds = "0" + remainingSeconds;
+    }
+    seconds++;
+    $('#update_duration').val(seconds);
+    if (seconds > 120) {
+        document.getElementById('counter').innerHTML = minutes + ":" + remainingSeconds + "  ---- Buzz Buzz";
+    } else {
+      document.getElementById('counter').innerHTML = minutes + ":" + remainingSeconds;
+    }
+}
+
+var countTimer = setInterval('secondPassed()', 1000);
+</script>
+
 <%= form_for(@update) do |f| %>
   <% if @update.errors.any? %>
     <div id="error_explanation">
@@ -11,19 +33,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :standup_id %><br>
-    <%= f.number_field :standup_id %>
-  </div>
-  <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.number_field :duration %>
-  </div>
+  <%= f.hidden_field :duration, :value => 0 %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Done!" %>
   </div>
 <% end %>

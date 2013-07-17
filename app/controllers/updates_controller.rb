@@ -42,7 +42,7 @@ class UpdatesController < ApplicationController
   def update
     respond_to do |format|
       if @update.update(update_params)
-        format.html { redirect_to @update, notice: 'Update was successfully updated.' }
+        format.html { redirect_to edit_standup_path(@update.standup), notice: 'Update was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
