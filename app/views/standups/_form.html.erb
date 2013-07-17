@@ -1,28 +1,6 @@
-<%= form_for(@standup) do |f| %>
-  <% if @standup.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@standup.errors.count, "error") %> prohibited this standup from being saved:</h2>
-
-      <ul>
-      <% @standup.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <h1>Participants:</h1>
-  <% @standup.participants.each do |participant| %>
-    <div>
-      <%= participant.name %>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :team_id %><br>
-    <%= f.number_field :team_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<h1>Participants:</h1>
+<% @standup.team.users.each do |participant| %>
+  <div>
+    <%= participant.name %>
   </div>
 <% end %>
