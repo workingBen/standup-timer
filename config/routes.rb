@@ -1,4 +1,6 @@
 StandupTimer::Application.routes.draw do
+  resources :standups
+
   resources :users
 
   resources :teams

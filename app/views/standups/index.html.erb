@@ -1,0 +1,27 @@
+<h1>Listing standups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @standups.each do |standup| %>
+      <tr>
+        <td><%= standup.team_id %></td>
+        <td><%= link_to 'Show', standup %></td>
+        <td><%= link_to 'Edit', edit_standup_path(standup) %></td>
+        <td><%= link_to 'Destroy', standup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Standup', new_standup_path %>
