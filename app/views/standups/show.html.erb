@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Team:</strong>
-  <%= @standup.team_id %>
-</p>
+<h1>
+  <%= @standup.team.name %> Standup - <%= @standup.created_at.strftime("%A, %b %d") %>
+</h1>
 
-<%= link_to 'Edit', edit_standup_path(@standup) %> |
-<%= link_to 'Back', standups_path %>
+<% @standup.updates.each do |update| %>
+  <div style="clear: both;">
+    <%= update.user.name %>: <%= distance_of_time_in_words(update.duration, 0, true) %>
+  </div>
+<% end %>

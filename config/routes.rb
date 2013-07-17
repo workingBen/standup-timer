@@ -1,5 +1,9 @@
 StandupTimer::Application.routes.draw do
-  resources :updates
+  resources :updates do
+    member do
+      post 'absent_user'
+    end
+  end
 
   resources :standups do
     member do

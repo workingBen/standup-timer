@@ -38,4 +38,8 @@ var countTimer = setInterval('secondPassed()', 1000);
   <div class="actions">
     <%= f.submit "Done!" %>
   </div>
+
+  <div class="actions">
+    <%= button_to "Participant ABSENT", absent_user_update_path(@update), class: "button", method: "post", style: 'float: left;' %>
+  </div>
 <% end %>
