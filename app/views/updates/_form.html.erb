@@ -14,6 +14,19 @@ $(document).ready(function() {
 });
 </script>
 
+<script>
+var seconds = 0;
+function secondPassed() {
+  seconds++;
+  $('#update_duration').val(seconds);
+  if (seconds == 120) {
+    // time is up!!
+  }
+}
+
+var countTimer = setInterval('secondPassed()', 1000);
+</script>
+
 <%= form_for(@update) do |f| %>
   <% if @update.errors.any? %>
     <div id="error_explanation">
