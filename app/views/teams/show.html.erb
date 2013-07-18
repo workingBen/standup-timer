@@ -3,7 +3,11 @@
 <h1><span style="color: blue;"><%= @team.name %></span></h1>
 
 <div>
+  <% if @team.users.size > 0 %>
   <%= button_to "New Standup", new_standup_team_path, class: "button", method: "post"  %>
+  <% else %>
+  <h3 class="bp_alert">Please add team members to run a standup.</h3>
+  <% end %>
 </div>
 
 <h2>Team members:</h2>
@@ -13,6 +17,6 @@
 
 <div>
   <p class="bp_v_spacer">
-    <%= button_to 'Add Team Member', new_user_path(), class: "button", method: "get" %>
+    <%= button_to 'Add Team Member', new_member_team_path(@team), class: "button", method: "get" %>
   </p>
 </div>

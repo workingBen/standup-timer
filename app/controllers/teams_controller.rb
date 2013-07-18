@@ -67,6 +67,11 @@ class TeamsController < ApplicationController
     redirect_to new_update_standup_path(user_id: standup.next_participant, standup_id: standup.id)
   end
 
+  def new_member
+    @team = Team.find(params[:id])
+    @user = User.new
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team

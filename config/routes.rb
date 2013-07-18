@@ -16,6 +16,7 @@ StandupTimer::Application.routes.draw do
   resources :teams do
     member do
       post 'new_standup'
+      get 'new_member'
     end
   end
 
