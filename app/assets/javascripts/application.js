@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require flipclock/libs/prefixfree.min
+//= require flipclock/flipclock.min
 //= require_tree .
 
 $(document).foundation();

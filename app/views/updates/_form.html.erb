@@ -1,23 +1,17 @@
 
-<span id="counter" class="timer">0:00</span>
-<script>
-var seconds = 0;
-function secondPassed() {
-    var minutes = Math.round((seconds - 30)/60);
-    var remainingSeconds = seconds % 60;
-    if (remainingSeconds < 10) {
-        remainingSeconds = "0" + remainingSeconds;
-    }
-    seconds++;
-    $('#update_duration').val(seconds);
-    if (seconds > 120) {
-        document.getElementById('counter').innerHTML = minutes + ":" + remainingSeconds + "  ---- Buzz Buzz";
-    } else {
-      document.getElementById('counter').innerHTML = minutes + ":" + remainingSeconds;
-    }
-}
+<div class="standup-clock"></div>
 
-var countTimer = setInterval('secondPassed()', 1000);
+<script>
+$(document).ready(function() {
+  // Handler for .ready() called.
+  var clock = $('.standup-clock').FlipClock({
+    excludeHours: true
+  });
+
+  $('.flip')[0].remove();
+  $('.flip')[0].remove();
+  $('.hours').remove();
+});
 </script>
 
 <%= form_for(@update) do |f| %>
