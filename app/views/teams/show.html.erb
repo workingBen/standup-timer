@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><span style="color: blue;"><%= @team.name %></span> Standup Timer</h1>
+<h1><span style="color: blue;"><%= @team.name %></span></h1>
 
 <div>
   <%= button_to "New Standup", new_standup_team_path, class: "button", method: "post"  %>
@@ -12,5 +12,7 @@
 <% end %>
 
 <div>
-<%= link_to 'Add Team Member', new_user_path() %>
+  <p class="bp_v_spacer">
+    <%= link_to 'Add Team Member', new_user_path() %>
+  </p>
 </div>
