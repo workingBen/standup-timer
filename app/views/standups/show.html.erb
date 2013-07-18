@@ -5,13 +5,15 @@
 </h1>
 
 <% @standup.updates.each do |update| %>
-  <% if update.duration > 0 %>
-    <div style="clear: both;">
-      <%= update.user.name %>: <%= distance_of_time_in_words(update.duration, 0, true) %>
-    </div>
-  <% else %>
-      <%= update.user.name %>: ABSENT
-  <% end %>
+  <div style="clear: both;">
+    <% if update.duration > 0 %>
+        <%= update.user.name %>: <%= distance_of_time_in_words(update.duration, 0, true) %>
+    <% else %>
+        <%= update.user.name %>: ABSENT
+    <% end %>
+  </div>
 <% end %>
 
-<%= link_to "Team Overview", team_path(@standup.team) %>
+<div class="bp_v_spacer">
+  <%= link_to "Team Overview", team_path(@standup.team) %>
+</div>

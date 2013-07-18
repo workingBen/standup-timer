@@ -36,10 +36,10 @@ var countTimer = setInterval('secondPassed()', 1000);
   <%= f.hidden_field :duration, :value => 0 %>
 
   <div class="actions">
-    <%= f.submit "Done!" %>
+    <%= f.submit "Done!", class: "button" %>
   </div>
 
   <div class="actions">
-    <%= link_to "Participant ABSENT", absent_user_update_path(@update), class: "button", method: "post", style: 'float: left;' %>
+    <%= link_to "Participant ABSENT", absent_user_update_path(@update), class: "button bp_button", method: "post", style: 'float: left;' %>
   </div>
 <% end %>
