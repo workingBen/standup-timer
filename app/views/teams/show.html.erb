@@ -10,6 +10,11 @@
   <% end %>
 </div>
 
+<h2>Recent standups:</h2>
+<% @team.recent_standups.each do |standup| %>
+  <div style="clear: both;"><strong><%= standup.created_at.strftime('%A %b %e') %></strong></div>
+<% end %>
+
 <h2>Team members:</h2>
 <% @team.users.each do |user| %>
   <div style="clear: both;"><strong><%= user.name %></strong>  (averages <%= distance_of_time_in_words(user.average_duration, 0, true) %>)</div>
