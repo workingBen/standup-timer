@@ -12,7 +12,7 @@
 
 <h2>Recent standups:</h2>
 <% @team.recent_standups.each do |standup| %>
-  <div style="clear: both;"><strong><%= standup.created_at.strftime('%A %b %e') %></strong>: <%= distance_of_time_in_words(standup.duration) %></div>
+  <div style="clear: both;"><strong><%= link_to standup.created_at.strftime('%A %b %e'), standup %></strong>: <%= distance_of_time_in_words(standup.duration) %></div>
 <% end %>
 
 <h2 class="bp_v_spacer">Team members:</h2>

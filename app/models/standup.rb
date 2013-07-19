@@ -1,7 +1,7 @@
 class Standup < ActiveRecord::Base
   belongs_to :team
   has_many :updates
-  has_many :participants, through: :updates, source: :user, :conditions => ['updates.duration > 0']
+  has_many :participants, through: :updates, source: :user, :conditions => ['updates.absent == false']
 
   def duration
     (finished_at - created_at)
