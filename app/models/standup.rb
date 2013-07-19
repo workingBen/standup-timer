@@ -3,6 +3,9 @@ class Standup < ActiveRecord::Base
   has_many :updates
   has_many :participants, through: :updates, source: :user, :conditions => ['updates.duration > 0']
 
+  def duration
+    (finished_at - created_at)
+  end
 
   def next_participant
     users = team.users
@@ -16,6 +19,15 @@ class Standup < ActiveRecord::Base
       return user unless has_update
     end
 
+    # finish if we just got the last participant
+    finish()
     return nil
+  end
+
+  def finish
+    unless (self.finished_at)
+      self.finished_at = Time.now
+      self.save
+    end
   end
 end
